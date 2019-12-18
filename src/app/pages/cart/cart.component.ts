@@ -7,15 +7,20 @@ import { CommonService } from 'src/app/common.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+ 
 
-  constructor(private ser:CommonService) { }
+  constructor(private service:CommonService) { }
 
  
 
   getcart(){
-   return this.ser.cart;
+   return this.service.cart;
+  }
+  del(){
+    this.service.cart.splice(0,1);
   }
    ngOnInit() {
   }
+
 
 }

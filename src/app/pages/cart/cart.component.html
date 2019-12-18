@@ -1,4 +1,33 @@
-<ul *ngFor="let c of getcart()">
+<!-- <ul *ngFor="let c of getcart()">
+    <img src="{{c.image}}">
     <li>{{c.name}}</li>
     <li>{{c.price}}</li>
-</ul>
+</ul> -->
+<table class="table table-bordered table-dark text-center">
+    <thead>
+      <tr>
+        <th scope="col">S.no</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Product</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of getcart() let i=index" >
+       
+        <td>{{i+1}}</td>
+        <img src="{{c.image}}">
+        <td>{{c.name}}</td>
+        <td>{{c.price}}</td>
+        <td>   <input type="number" class="form-control col-2 mx-auto" [(ngModel)]=c.quantity></td>
+        <td>{{c.quantity*c.price}}</td>
+        <td><button class="btn btn-danger" (click)="del()" >delete</button></td>
+      
+      </tr>
+   
+    </tbody>
+  </table>
+<input type="text" [(ngModel)]="total">

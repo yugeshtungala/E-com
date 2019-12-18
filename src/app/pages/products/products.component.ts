@@ -7,14 +7,19 @@ import { CommonService } from 'src/app/common.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-p:any;
+  shirt:any;
+  
   constructor(private ser:CommonService) { }
+
   getshirts(){
     return this.ser.products;
   }   
-  addToCart(p){
-   this.ser.cart.push(p)
+  addToCart(shirt: any){
+   this.ser.cart.push(shirt)
 }
+
+
+
   ngOnInit() {
   }
 
