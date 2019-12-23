@@ -15,7 +15,15 @@ export class ProductsComponent implements OnInit {
     return this.ser.products;
   }   
   addToCart(shirt: any){
-   this.ser.cart.push(shirt)
+    
+    if(this.ser.cartItems.hasOwnProperty(shirt.id)){
+      this.ser.cartItems[shirt.id].quantity +=1;
+    }else{
+      this.ser.cartItems[shirt.id]={quantity:1,image:shirt.image,name:shirt.name,price:shirt.price}
+      this.ser.cart.push(shirt.id)
+    }
+
+   
 }
 
 

@@ -16,18 +16,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let c of getcart() let i=index" >
+      <tr *ngFor="let car of cart let i=index" >
        
         <td>{{i+1}}</td>
-        <img src="{{c.image}}">
-        <td>{{c.name}}</td>
-        <td>{{c.price}}</td>
-        <td>   <input type="number" class="form-control col-2 mx-auto" [(ngModel)]=c.quantity></td>
-        <td>{{c.quantity*c.price}}</td>
+        <img src="{{cartItems[car].image}}">
+        <td>{{cartItems[car].name}}</td>
+        <td>{{cartItems[car].price}}</td>
+       <input type="number" (input)="getTotal()"  [(ngModel)]="cartItems[car].quantity">
+        <td>{{cartItems[car].quantity*cartItems[car].price}}</td>
         <td><button class="btn btn-danger" (click)="del()" >delete</button></td>
       
       </tr>
    
     </tbody>
   </table>
-<input type="text" [(ngModel)]="total">
+  <h1>{{total}}</h1>
